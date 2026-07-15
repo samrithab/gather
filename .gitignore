@@ -1,0 +1,41 @@
+# macOS
+.DS_Store
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Kotlin
+.kotlin/
+
+# Android
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+
+# Spring Boot
+backend/logs/
+backend/uploads/
+
+# Database volumes
+postgres-data/
+
+# Logs
+*.log
