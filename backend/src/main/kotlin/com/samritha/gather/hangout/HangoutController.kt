@@ -1,5 +1,6 @@
 package com.samritha.gather.hangout
-
+import com.samritha.gather.rsvp.HangoutRsvpsResponse
+import com.samritha.gather.rsvp.RsvpService
 import jakarta.validation.Valid
 import org.springframework.http.HttpStatus
 import org.springframework.security.core.annotation.AuthenticationPrincipal
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import java.util.UUID
 
+
 @RestController
 @RequestMapping("/api/hangouts")
 class HangoutController(
-    private val hangoutService: HangoutService
+    private val hangoutService: HangoutService,
+    private val rsvpService: RsvpService
 ) {
 
     @PostMapping
@@ -50,6 +53,17 @@ class HangoutController(
             hangoutId = id
         )
     }
+
+    @GetMapping("/{id}/rsvps")
+fun getHangoutRsvps(
+    @AuthenticationPrincipal jwt: Jwt,
+    @PathVariable id: UUID
+): HangoutRsvpsResponse {
+    return rsvpService.getOrganizerRsvps(
+        organizerId = jwt.organizerId(),
+        hangoutId = id
+    )
+}
 
     private fun Jwt.organizerId(): UUID {
         return try {

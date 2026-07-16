@@ -18,18 +18,25 @@ class SecurityConfig {
     }
 
     @Bean
-    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+    fun securityFilterChain(
+        http: HttpSecurity
+    ): SecurityFilterChain {
         http
             .csrf { it.disable() }
             .sessionManagement {
-                it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                it.sessionCreationPolicy(
+                    SessionCreationPolicy.STATELESS
+                )
             }
             .authorizeHttpRequests { requests ->
                 requests
-                    .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
+                    .dispatcherTypeMatchers(
+                        DispatcherType.ERROR
+                    ).permitAll()
                     .requestMatchers(
                         "/api/auth/register",
                         "/api/auth/login",
+                        "/api/public/**",
                         "/error"
                     ).permitAll()
                     .anyRequest().authenticated()
