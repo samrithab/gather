@@ -4,6 +4,9 @@ A modern full-stack event planning application that allows users to create hango
 
 Gather was built as a portfolio project to demonstrate production-style full-stack software engineering using React, Java, Spring Boot, PostgreSQL, and JWT authentication.
 
+Check out the demo: https://youtu.be/bDRZiAUhdf4
+
+
 ---
 
 ## Highlights
