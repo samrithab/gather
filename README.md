@@ -245,6 +245,6 @@ gather/
 
 ---
 
-## License
+## Why I Built This
 
-This project was created for educational and portfolio purposes.
+I enjoy organizing social events for friends and wanted to build a simple application that solved a real planning problem. At the same time, I wanted hands-on experience building a production-style backend with Spring Boot and a modern React frontend. Gather gave me the opportunity to design a complete full-stack application from authentication through database persistence and a public RSVP workflow.
